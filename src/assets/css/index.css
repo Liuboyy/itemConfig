@@ -1,0 +1,59 @@
+body, html, h1, h2, h3, h4, h5, h6, li, ul, p, table, tr, td, th, dd, dt, ol, dl, button {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 0 none;
+}
+
+.el-dialog.ui-tree-dialog {
+    margin-top: 100px;
+    margin-bottom: 0;
+    height: 600px;
+    overflow: auto;
+}
+
+.el-message-box__wrapper {
+    top: -530px;
+}
+
+[class ^= 'icon-'],
+[class *= ' icon-'] {
+    margin-right: 5px;
+    font-family: "iconfont" !important;
+    speak: none;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /*vertical-align: middle;*/
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: inherit;
+}
+
+.icon-shanjian, .icon-zengjia {
+    color: #999999;
+}
+
+/*表格文字超出样式*/
+.el-tooltip__popper.is-light {
+    background: #fff;
+    border: 1px solid #303133;
+    max-width: 400px;
+}
+
+.icon-shenhe {
+    /*color: ;*/
+}
+
+/*组件复选框样式*/
+.el-checkbox__label {
+    padding-left: 5px;
+}
+
+.el-checkbox + .el-checkbox {
+    margin-left: 10px;
+}

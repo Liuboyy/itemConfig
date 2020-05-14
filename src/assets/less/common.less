@@ -1,0 +1,465 @@
+//@import (reference) './index';
+.initStyle(/*----------------------------------------------------主题色------------------------------------------------------*/
+    @para-main_color: #5196fe,  //#75B1FF,
+    /*----------------------------------------------------菜单栏------------------------------------------------------*/
+    //背景色
+    @para-menu_bgColor: #2b323d,  //#283036,
+    //菜单展开背景色
+    @para-menu-collapse_bgColor: #1f262f,  //#161a1e,
+    //字体颜色
+    @para-menu-txt_color: #a2aab8,  //#98a2ac,
+    //圆点颜色
+    @para-menu-dash_color: #7284a8,  //#7284a8
+    //线条颜色
+    @para-menu-line_color: #283c50,  //#303c49,
+    /*----------------------------------------------------列表区域------------------------------------------------------*/
+    //列表鼠标hover
+    @para-table-hover_bgColor: #ecf6fe,  //#f3faff,
+    //边框线颜色
+    @para-table-hover_borderColor: #80bcf3,  //#b0cef9,
+    //高亮行背景色
+    @para-table-focus_bgColor: #e8f5ff,
+    /*----------------------------------------------------按钮颜色------------------------------------------------------*/
+    @para-btn_color: #5196fe,  //#75B1FF, #8dc1fe
+    @para-btn_hoverColor: #74abfe) {
+
+    // 导航栏高度
+    @base-nav-height: 50px;
+    //弹框表头背景色
+    @base-dialog-bgColor: #f3f3f3;
+
+    //表格边线条颜色
+    @base-table_borderColor: #efefef;
+
+
+    /** 多系统公用样式 ---------------------------------====== Start ======--------------------------------**/
+
+    //菜单栏样式
+    .ui-nav {
+        background: @para-menu_bgColor;
+
+        &::-webkit-scrollbar {
+            width: 0
+        }
+
+        .ui-nav-bar {
+            background: @para-menu_bgColor;
+        }
+
+        .ui-system-info {
+            border-bottom: 1px @para-menu-line_color solid;
+            border-top: 1px @para-menu-line_color solid;
+            background: @para-menu_bgColor;
+
+            i {
+                color: @para-main_color;
+            }
+        }
+
+        /*菜单栏*/
+
+        .el-menu {
+            background: @para-menu_bgColor;
+
+            .el-menu--inline {
+                background: @para-menu-collapse_bgColor;
+            }
+
+            .default {
+                color: @para-menu-txt_color;
+            }
+
+            .active {
+                color: @para-main_color;
+            }
+
+            .single_menu_item {
+                text-align: left;
+                height: 40px;
+                line-height: 40px;
+                font-weight: bold;
+                color: @para-menu-txt_color;
+                border-bottom: 1px @para-menu-line_color solid;
+                padding: 0 10px !important;
+            }
+
+
+            //一级菜单
+            .el-submenu__title {
+                color: @para-menu-txt_color;
+                border-bottom: 1px @para-menu-line_color solid;
+            }
+
+            //二级菜单
+            .el-submenu .el-menu-item {
+                color: #cacdcf;
+            }
+
+            .el-submenu .el-menu-item:hover {
+                color: #ffffff;
+            }
+
+            .el-submenu .el-menu-item.is-active {
+                color: @para-main_color;
+            }
+
+            .el-submenu__title:hover, el-submenu__title:focus,
+            .el-menu-item:hover, .el-menu-item:focus{
+                background: @para-menu_bgColor;
+            }
+
+            //圆点
+            .menu-item-dot {
+                border: 0.5px dashed @para-menu-dash_color;
+
+                .normal-dot {
+                    background-color: @para-menu-dash_color;
+                }
+
+                .active-dot {
+                    background-color: @para-main_color;
+                }
+            }
+        }
+    }
+    //内容模块
+    .ui-content {
+        //路由模块
+        .ui-multiple_tab-item {
+            color: @para-main_color;
+
+            span.ui-link {
+                color: @para-main_color;
+            }
+            span.ui-link + i {
+                background: @para-main_color;
+            }
+        }
+
+        .ui-main-module {
+            li.ui-search-layout_inp {
+                .el-checkbox__label {
+                    font-size: 12px;
+                }
+            }
+
+            .el-input--small {
+                font-size: 12px !important;
+            }
+
+            .ui-search-area {
+                background: @base-main-areaBg;
+                border: 1px solid #e6e6e6;
+                border-top: 0 none;
+            }
+
+            //查询区域按钮
+            .ui-main-search-btn, .ui-filter-btn {
+                .el-button {
+                    border-radius: 15px;
+                }
+
+                .el-button--primary {
+                    color: #ffffff;
+                    background: @para-btn_color;
+                    border-color: @para-btn_color;
+                }
+
+                .el-button--default:focus, .el-button--default:hover {
+                    background-color: #FFFFFF;
+                    color: #333333;
+                    border-color: @para-btn_color;
+                }
+
+                .el-button--primary:hover {
+                    background: @para-btn_hoverColor;
+                    border-color: @para-btn_hoverColor;
+                }
+
+                .el-button--primary:focus {
+                    background: @para-btn_color;
+                }
+            }
+
+            //筛选按钮
+            .ui-filter-btn {
+                text-align: left;
+                margin: 5px 0 0 100px;
+                box-sizing: border-box;
+
+                .el-button--small {
+                    padding: 9px;
+
+                    i {
+                        font-size: 12px !important;
+                        margin-right: 5px !important;
+                    }
+                }
+
+                .el-button--text {
+                    margin-left: 0 !important;
+                }
+            }
+
+            //操作按钮
+            .ui-fn-module {
+                .el-button--primary {
+                    color: @para-btn_color;
+                    border-color: @para-btn_color;
+                    background: none;
+
+                    &:hover, &:active {
+                        background: @para-btn_color;
+                        color: #ffffff;
+                    }
+                }
+            }
+
+            //列表区域
+            .ui-main-module-table {
+                .el-table th {
+                    background: #f5f8fa;
+                }
+
+                .el-table__body tr > td:first-child .el-checkbox__input {
+                    position: relative;
+                    left: -1.5px;
+                }
+
+                .el-table--enable-row-hover .el-table__body tr:hover + tr td {
+                    border-top: 1px solid transparent;
+                }
+
+                .el-table--enable-row-hover .el-table__body tr:hover td {
+                    background: @para-table-hover_bgColor;
+                    border-top: 1px solid @para-table-hover_borderColor;
+                    border-bottom: 1px solid @para-table-hover_borderColor;
+                }
+
+                .el-table__body tr.hover-row > td {
+                    background: @para-table-hover_bgColor;
+                    border-top: 1px solid @para-table-hover_borderColor;
+                    border-bottom: 1px solid @para-table-hover_borderColor;
+                }
+
+                .el-table__body tr:hover > td:first-child {
+                    border-left: 2px @para-main_color solid;
+                }
+
+                .el-table--enable-row-hover .el-table__body tr:hover > td:first-child {
+                    border-left: 2px @para-main_color solid;
+                }
+
+                .el-table__body .hover-row > td:first-child {
+                    border-left: 2px @para-main_color solid;
+                }
+
+                //斑马线底纹
+                .el-table--striped .el-table__body tr.el-table__row--striped td {
+                    background: #fdfdfd;
+                }
+                .el-table--striped .el-table__body tr:hover td{
+                    background: @para-table-hover_bgColor;
+                    border-top: 1px solid @para-table-hover_borderColor;
+                    border-bottom: 1px solid @para-table-hover_borderColor;
+                }
+
+                //高亮行样式
+                .el-table--striped .el-table__body tr.el-table__row--striped.current-row td,
+                .el-table__body tr.current-row>td {
+                    background: @para-table-focus_bgColor;
+                }
+
+                //vxe-table样式
+                .vxe-table tr td {
+                    border-top: 1px solid transparent;
+                    border-bottom: 1px solid @base-table_borderColor;
+                }
+                .vxe-table tr > td:first-child {
+                    border-left: 2px solid transparent;
+                }
+                .vxe-body--row:hover td {
+                    background: @para-table-hover_bgColor;
+                    border-top: 1px solid @para-table-hover_borderColor;
+                    border-bottom: 1px solid @para-table-hover_borderColor;
+                }
+                .vxe-body--row:hover > td:first-child {
+                    border-left: 2px solid @para-main_color;
+                }
+
+                //高亮行样式
+                .vxe-table .vxe-body--row.row--current {
+                    //background: @para-table-focus_bgColor;
+                }
+
+                //原生table样式
+                //.ui-table__body tr td {
+                //    border-top: 1px solid @base-table_borderColor;
+                //    border-bottom: 1px solid @base-table_borderColor;
+                //}
+                //.ui-table__body tr > td:first-child {
+                //    border-left: 2px solid transparent;
+                //}
+                //.ui-table__body tr:hover td {
+                //    background: @para-table-hover_bgColor;
+                //    border-top: 1px solid @para-table-hover_borderColor;
+                //    border-bottom: 1px solid @para-table-hover_borderColor;
+                //}
+                //.ui-table__body tr:hover > td:first-child {
+                //    border-left: 2px @para-main_color solid;
+                //}
+
+                //合并样式
+                .cell-row > td {
+                    background: #fdfdfd!important;
+                }
+                .el-table__body tr.cell-row {
+                    & td:not([rowspan="1"]){
+                        border: 0 none!important;
+                        border-bottom: 1px #e6e6e6 solid!important;
+                    }
+
+                    &:hover td:not([rowspan="1"])+td {
+                        border-left: 2px #5196fe solid;
+                    }
+                }
+
+                //数据栏切换样式
+
+                .ui-main-tab-box {
+                    span:hover {
+                        color: @para-main_color;
+                    }
+                    .ui-active {
+                        color: #FFFFFF!important;
+                        background: @para-main_color;
+                    }
+                }
+
+                .el-table th, .el-table td {
+                    padding: 0 !important;
+                    //vertical-align: top;
+                }
+
+                .el-table .cell {
+                    padding: 8px;
+                }
+                //升降序箭头
+                .el-table .caret-wrapper {
+                    width: 15px;
+                }
+                .el-table .sort-caret {
+                    left: 5px;
+                }
+
+                //状态圆圈
+                .ui-state_dot {
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    display: inline-block;
+                    position: relative;
+                    top: -2px;
+                    left: 0;
+                }
+
+                .el-button--small:not(:first-child) span {
+                    border-left: 1px #3388ff solid;
+                    padding-left: 10px;
+                    display: inline-block;
+                    height: 10px;
+                }
+
+                .el-button + .el-button {
+                    margin-left: 6px;
+                }
+            }
+        }
+
+        //选项卡
+        .el-tabs--card>.el-tabs__header .el-tabs__item:hover {
+            color: @para-main_color;
+        }
+        .el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
+            //color: #FFFFFF;
+            font-weight: normal;
+            border-bottom: 1px @para-main_color solid;
+            background: @para-main_color;
+            //height: 28px;
+            //line-height: 28px;
+            border-radius: 5px 5px 0 0;
+        }
+    }
+    .ui-main-module-top {
+        //margin-top: 10px;
+        //margin-bottom: 20px;
+        //padding: 10px 30px;
+        //background: #ffffff ;
+    }
+    .ui-main-module-top ul::after {
+        //display: block;
+        //content: '';
+        //clear: both;
+    }
+    .ui-main-module-top li {
+        //float: left;
+        //margin-right: 20px;
+    }
+    // 点击列颜色
+    .ui-link {
+        cursor: pointer;
+        color: @base-link-color;
+    }
+
+    //.ui-main-module .ui-main-module-search li {
+    //    width: 19%;
+    //    margin-right: 5px;
+    //}
+
+    //业绩报表升降序图标
+    .ui-target_area {
+        .active {
+            color: #FFFFFF;
+            background: @para-main_color!important;
+        }
+    }
+
+    //
+
+    tr:hover td {
+        background: @para-table-hover_bgColor;
+    }
+
+    .ui-theme_tabs {
+        //border-bottom: 1px @para-main_color solid;
+        //background: @para-main_color;
+
+    }
+    .ui-theme_tabs .el-tabs__header .el-tabs__item {
+        height: 28px!important;
+        line-height: 28px!important;
+        border-radius: 5px 5px 0 0;
+        background: @para-btn_color;
+        color: #ffffff!important;
+        font-weight: normal!important;
+        opacity: 0.4;
+    }
+    .ui-theme_tabs .el-tabs__header .el-tabs__item.is-active {
+        opacity: 1;
+    }
+
+
+
+    /** 多系统公用样式 ---------------------------------====== End ======--------------------------------**/
+}
+
+// 蒙层样式
+.el-loading-mask {
+    //background-color: rgba(0,0,0,.6);
+}
+
+
+
+
+
+
